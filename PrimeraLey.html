@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="stylesheet" href="estiloprimera.css">
+<title>La Primera Ley de Newton</title>
+    
+ 
+</head>
+<body>
+  <center><h1>LA PRIMERA LEY DE NEWTON</h1></center>
+  <main class="container" role="main">
+   <section aria-labelledby="datos">
+    <p>La primera ley de Newton, o ley de inercia, establece que un objeto permanecerá en reposo o se moverá a una velocidad constante en línea recta a menos que una fuerza externa actúe sobre él. En otras palabras, un objeto no puede cambiar su estado de movimiento por sí mismo; necesita una fuerza para hacerlo. </p>
+<ol><li>Objetos en reposo: Una pelota quieta en el suelo permanecerá quieta a menos que una fuerza, como una patada, la patee para que se mueva.</li>
+<li>Objetos en movimiento: Un objeto que se mueve con velocidad constante, como un satélite en el espacio, continuará moviéndose a esa misma velocidad y en línea recta indefinidamente si no hay ninguna fuerza que lo detenga.</li>
+<li>Fuerza externa: Una fuerza neta (una fuerza que no es equilibrada por otras fuerzas) es necesaria para cambiar el estado de movimiento de un objeto.</li>
+<li>Inercia: Esta ley también se conoce como la ley de la inercia, que es la tendencia de un objeto a resistir cambios en su estado de movimiento. </li>
+</ol>
+<center> <img src="Imagenes/primera.jpeg" alt=""></center>
+          <h3>Demostración interactiva (simulada)</h3>
+         <p>Varía la masa y la fuerza para ver cómo cambia la aceleración (segunda ley).</p>
+   <div class="controls">
+            <label>Fuerza: <span id="fVal">10</span> N</label>
+            <input id="F" type="range" min="0" max="50" value="10">
+            <label>masa: <span id="mVal">2</span> kg</label>
+            <input id="M" type="range" min="0.5" max="10" step="0.5" value="2">
+            <button id="reset">Restablecer</button>
+          </div>
+          <div style="margin-top:10px">
+            <strong>Aceleración:</strong> <span id="acc">5.00</span><br><br>
+          </div>
+          <hr class="li" >
+        </div>
+           <div class="ecua"> <hr>
+        <p class="ecua">La primera ley de Newton, o ley de la inercia, se expresa como 
+ o 
+, lo que significa que la suma de todas las fuerzas que actúan sobre un objeto es igual a cero, resultando en que su velocidad (
+) no cambia con el tiempo (
+). Esto implica que un objeto en reposo permanecerá en reposo y un objeto en movimiento continuará moviéndose a velocidad constante en línea recta, a menos que actúe una fuerza externa sobre él. </p>
+           <ol>
+            <li><p class="ecuac">\(\Sigma F=0\):</p> La suma de todas las fuerzas que actúan sobre un objeto es igual a cero.</li>
+           <li><p class="ecuac">\(dv/dt=0\):</p> La tasa de cambio de la velocidad con respecto al tiempo (la aceleración) es cero, lo que significa que la velocidad es constante.</li>
+          <li><p class="ecuac">Estado de equilibrio:</p> Un objeto se mantiene en equilibrio cuando la fuerza neta sobre él es cero. Esto puede significar que está en reposo (velocidad cero) o que se mueve a una velocidad constante en línea recta. </li>
+          </ol>
+
+
+
+
+        </section>
+        <section>
+          <center><h1>EJERCICIOS</h1></center>
+       <div class="libro">   <p>Un libro está sobre una mesa y no se mueve. <br>
+
+a) ¿Qué dice la ley de inercia sobre su estado? <br>
+
+b) Si permanece así, ¿significa que no hay fuerzas actuando? Explica. <br><br>
+
+Un automóvil circula a velocidad constante en línea recta por una carretera.
+¿Cuál de las siguientes afirmaciones es correcta y por qué? <br>
+
+a) No actúan fuerzas sobre el auto. <br>
+
+b) La fuerza neta sobre el auto es cero. <br>
+
+c) El motor no está haciendo fuerza. <br></p>
+</div>
+ </section>
+
+      </div>
+<script>
+    const F = document.getElementById('F');
+    const M = document.getElementById('M');
+    const fVal = document.getElementById('fVal');
+    const mVal = document.getElementById('mVal');
+    const acc = document.getElementById('acc');
+    const box = document.getElementById('box');
+    const reset = document.getElementById('reset');
+
+    function update(){
+      const f = Number(F.value);
+      const m = Number(M.value);
+      fVal.textContent = f;
+      mVal.textContent = m;
+      const a = m>0? (f/m) : 0;
+      acc.textContent = a.toFixed(2);
+      // animación simple: desplaza la caja proporcional a la aceleración
+      const translate = Math.min(120, a*18);
+      box.style.transform = `translateX(${translate}px)`;
+      box.textContent = m + ' kg';
+    }
+
+    F.addEventListener('input', update);
+    M.addEventListener('input', update);
+    reset.addEventListener('click', ()=>{F.value=10;M.value=2;update();});
+    update();
+  </script>
+
+  </main>
+    <h3><center>
+        <a href="index.html">Inicio</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="PrimeraLey.html">Primera Ley de Newton</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="SegundaLey.html">Segunda Ley de Newton</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="TerceraLey.html">Tercera Ley de Newton</a>&nbsp;&nbsp;&nbsp;&nbsp;
+       <hr class="h">
+        </center></h3>
+</body>
+</html>
